@@ -6,21 +6,28 @@
   </head>
   <body>
     <h1>Twittler</h1>
-    <div class="tweets"></div>
+    <header>
+        <p>Tweetles<button type="button">Refresh</button></p>
+    </header>
+        <section class="board"></section>
     <script>
 
       $(document).ready(function(){
-        var $body = $('.tweets');
-        $body.html('');
+        var $message = $('.board');
+        $message.html('');
 
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + '***Created at ' + tweet.created_at);
+          $tweet.appendTo($message);
           index -= 1;
         }
+
+        $('button').click(function() {
+            location.reload();
+        });
 
       });
 
