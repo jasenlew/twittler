@@ -9,7 +9,7 @@
     <header>
         <p>Tweetles<button type="button">Refresh</button></p>
     </header>
-        <section class="board"></section>
+    <section class="board"></section>
     <script>
 
       $(document).ready(function(){
@@ -19,9 +19,15 @@
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + '***Created at ' + tweet.created_at);
+          var $user = $('<div></div>');
+          var $tweet = $('<div></div><br>');
+
+          $user.text('@' + tweet.user + ' | Tweetled on ' + tweet.created_at);
+          $tweet.text(tweet.message);
+
+          $user.appendTo($message);
           $tweet.appendTo($message);
+
           index -= 1;
         }
 
