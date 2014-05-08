@@ -67,7 +67,7 @@
           while (index >= 0) {
 
             var tweet = streams.home[index];
-            var $author = $('<span class="author"></span>');
+            var $author = $('<a href=# class="author"></a>');
             var $handle = $('<span class="handle"></span><br>');
             var $tweet = $('<span class="message"></span><br><br>');
 
@@ -99,6 +99,8 @@
             $author.appendTo($message);
             $handle.appendTo($message);
             $tweet.appendTo($message);
+
+            $('.author').attr('href', "http://www.yahoo.com");
 
             index -= 1;
           }
