@@ -1,7 +1,4 @@
 body {
-    border-style: solid;
-    border-width: 2px;
-
     font-family: 'Lato', sans-serif;
     font-size: 0.9em;
 
@@ -23,9 +20,6 @@ header {
     text-align: center;
     background-color: whitesmoke;
     opacity: 0.9;
-
-    border-style: dotted;
-    border-width: 2px;
 }
 
 img {
@@ -62,8 +56,6 @@ img {
 
 .content {
     margin-top: 1%;
-    border-style: solid;
-    border-width: 2px;
 }
 
 .left {
@@ -119,11 +111,13 @@ textarea {
     padding: 10px;
 }
 
+/*
 .separator {
     border-style: dotted;
     border-width: 1px;
     margin: 0px -10px 0px -10px;
 }
+*/
 
 .tweets > img {
     height: 48px;

@@ -2,6 +2,7 @@
 <html>
   <head>
     <script src="jquery.js"></script>
+    <script src="jquery.timeago.js"></script>
     <script src="data_generator.js"></script>
     <link rel="stylesheet" href="main.css">
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -33,21 +34,24 @@
           <span>Tweets</span>
           <button id="refresh">Refresh Tweetles</button>
         </div>
+
         <div class="tweets">
-          <div class="separator"></div>
-
-
-          <!--NEED TO UPDATE BELOW/PLACEHOLDER-->
           <img src="imgs/shawndrost.jpg" alt=""/>
           <div class="tweet">
             <span class="author">Shawn Dorost</span>
             <span class="handle"><a href=#>@sdorost</a> - 11h</span>
             <span class="message"><br>The bunny ran over the turtle with a green lollipop and then, can you believe, did nothing.</span>
           </div>
-          <!--NEED TO UPDATE ABOVE/PLACEHOLDER-->
-
-
         </div>
+
+        <!--<div class="tweets">-->
+        <!--<img src="imgs/shawndrost.jpg" alt=""/>-->
+        <!--<div class="tweet">-->
+          <!--<span class="author">Shawn Dorost</span>-->
+          <!--<span class="handle"><a href=#>@sdorost</a> - 11h</span>-->
+          <!--<span class="message"><br>The bunny ran over the turtle with a green lollipop and then, can you believe, did nothing.</span>-->
+        <!--</div>-->
+
       </section>
     </div>
     <script>
@@ -61,25 +65,35 @@
           var index = streams.home.length - 1;
 
           while (index >= 0) {
+
             var tweet = streams.home[index];
             var $author = $('<span class="author"></span>');
             var $handle = $('<span class="handle"></span><br>');
             var $tweet = $('<span class="message"></span><br><br>');
 
             var name;
+            var imgPath;
 
             if (tweet.user === "shawndrost") {
               name = "Shawn Drost";
+              imgPath = "imgs/shawndrost.jpg";
             } else if (tweet.user === "sharksforcheap") {
               name = "Tony Phillips";
+              imgPath = "imgs/tonyphillips.jpg";
             } else if (tweet.user === "mracus") {
               name = "Marcus Phillips";
+              imgPath = "imgs/marcusphillips.jpg";
             } else {
               name = "Douglas Calhoun";
+              imgPath = "imgs/dougcalhoun.jpg";
             }
 
+            $('<img src="'+ imgPath +'">').load(function() {
+              $(this).width(40).height(48).appendTo('.tweets');
+            });
+
             $author.text(name);
-            $handle.text(' - @' + tweet.user + ' - ' + tweet.created_at);
+            $handle.text(' - @' + tweet.user + ' - ' + $.timeago(tweet.created_at));
             $tweet.text(tweet.message);
 
             $author.appendTo($message);
