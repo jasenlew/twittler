@@ -23,9 +23,9 @@
           <span class="name">Jasen Lew</span><br>
           <span class="handle">@jasenlew</span>
           <!--NEED TO COMPLETE / UPDATE LABEL-->
-          <form action="#">
-            <textarea name="userTwittle" placeholder="Type your 140 character max tweetle."></textarea><br>
-            <input type="submit" name="submit" value="Tweetle!">
+          <form class="formTweetle">
+            <textarea id="wuh" name="userTwittle" placeholder="Type your 140 character max tweetle."></textarea><br>
+            <input type="button" id="wuhButton" name="submit" value="Tweetle!">
           </form>
         </div>
       </section>
@@ -34,24 +34,10 @@
           <span>Tweets</span>
           <button id="refresh">Refresh Tweetles</button>
         </div>
-
         <div class="tweets">
-          <img src="imgs/shawndrost.jpg" alt=""/>
           <div class="tweet">
-            <span class="author">Shawn Dorost</span>
-            <span class="handle"><a href=#>@sdorost</a> - 11h</span>
-            <span class="message"><br>The bunny ran over the turtle with a green lollipop and then, can you believe, did nothing.</span>
           </div>
         </div>
-
-        <!--<div class="tweets">-->
-        <!--<img src="imgs/shawndrost.jpg" alt=""/>-->
-        <!--<div class="tweet">-->
-          <!--<span class="author">Shawn Dorost</span>-->
-          <!--<span class="handle"><a href=#>@sdorost</a> - 11h</span>-->
-          <!--<span class="message"><br>The bunny ran over the turtle with a green lollipop and then, can you believe, did nothing.</span>-->
-        <!--</div>-->
-
       </section>
     </div>
     <script>
@@ -83,18 +69,19 @@
             } else if (tweet.user === "mracus") {
               name = "Marcus Phillips";
               imgPath = "imgs/marcusphillips.jpg";
-            } else {
+            } else if (tweet.user === "douglascalhoun") {
               name = "Douglas Calhoun";
               imgPath = "imgs/dougcalhoun.jpg";
+            } else {
+              name = "Visitor";
+              imgPath = "guest.png";
             }
 
-            $('<img src="'+ imgPath +'">').load(function() {
-              $(this).width(40).height(48).appendTo('.tweets');
-            });
 
             $author.text(name);
             $handle.text(' - @' + tweet.user + ' - ' + $.timeago(tweet.created_at));
             $tweet.text(tweet.message);
+            $('<img src="'+ imgPath +'"><br>').appendTo($message);
 
             $author.appendTo($message);
             $handle.appendTo($message);
@@ -114,6 +101,10 @@
 
         $('#refresh').on('click', function () {
           tweetUp();
+        });
+
+        $("#wuhButton").on("click",function () {
+          writeTweet($("#wuh").val());
         });
 
       });
