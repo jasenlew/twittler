@@ -31,7 +31,6 @@ img {
 }
 
 .headerLeft {
-    /*background-color: brown;*/
     margin: auto;
     width: 37.5%;
     float: left;
@@ -43,14 +42,12 @@ img {
 }
 
 .headerCenter {
-    /*background-color: brown;*/
     margin:auto;
     width:62.5%;
     font-family: 'Lemon', cursive;
     font-size: 2em;
     font-weight: bolder;
 }
-
 
 /*CONTENT SECTION*/
 
@@ -85,14 +82,11 @@ textarea {
 }
 
 .board {
-    /*height: 50px;*/
     margin-right: 3%;
     width: 62%;
     background-color: whitesmoke;
     opacity: 0.9;
     float: left;
-    /*border-style: dotted;*/
-    /*border-width: 2px;*/
     border-radius: 8px;
 }
 
@@ -103,21 +97,9 @@ textarea {
     padding: 10px 0px 0px 10px;
 }
 
-#refresh {
-
-}
-
 .tweets {
     padding: 10px;
 }
-
-/*
-.separator {
-    border-style: dotted;
-    border-width: 1px;
-    margin: 0px -10px 0px -10px;
-}
-*/
 
 .tweet > img {
     height: 48px;
@@ -133,27 +115,4 @@ textarea {
 
 .author {
     font-weight: bold;
-}
-
-.message {
-
-}
-
-
-
-
-#element_to_pop_up { 
-    background-color:#fff;
-    border-radius:15px;
-    color:#000;
-    display:none; 
-    padding:20px;
-    min-width:400px;
-    min-height: 180px;
-}
-.b-close{
-    cursor:pointer;
-    position:absolute;
-    right:10px;
-    top:5px;
 }

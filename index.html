@@ -113,7 +113,7 @@
             location.reload();
         });
 
-        $('submit').on('click', function () {
+        $('#wuhButton').on('click', function () {
           var newMessage = $('#wuh').val();
           writeTweet(newMessage);
           tweetUp();
@@ -128,7 +128,6 @@
           $(this).css("color", "blue");
           e.preventDefault();
         });
-
 
         $(document).on('mouseout', '.author', function (e) {
           $(this).css("text-decoration", "none");
