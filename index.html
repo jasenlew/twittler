@@ -22,11 +22,12 @@
         <div class="user">
           <span class="name">Jasen Lew</span><br>
           <span class="handle">@jasenlew</span>
-          <!--NEED TO COMPLETE / UPDATE LABEL-->
+
           <form class="formTweetle">
             <textarea id="wuh" name="userTwittle" placeholder="Type your 140 character max tweetle."></textarea><br>
             <input type="button" id="wuhButton" name="submit" value="Tweetle!">
           </form>
+        
         </div>
       </section>
       <section class="board">
@@ -74,7 +75,7 @@
               imgPath = "imgs/dougcalhoun.jpg";
             } else {
               name = "Visitor";
-              imgPath = "guest.png";
+              imgPath = "imgs/guest.png";
             }
 
             $author.text(name);
@@ -97,9 +98,15 @@
         };
 
         tweetUp();
+        // setInterval(tweetUp, 1500);
 
         $('.headerLeft').click(function() {
             location.reload();
+        });
+
+        $('#wuhButton').on('click', function () {
+          var newMessage = $('#wuh').val();
+          writeTweet(newMessage);
         });
 
         $('#refresh').on('click', function () {
@@ -155,7 +162,7 @@
               imgPath = "imgs/dougcalhoun.jpg";
             } else {
               name = "Visitor";
-              imgPath = "guest.png";
+              imgPath = "imgs/guest.png";
             }
 
             $author.text(name);
