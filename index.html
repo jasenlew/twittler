@@ -71,15 +71,15 @@
           }
         };
 
-        var tweetUp = function () {
+        var tweetUp = function (tweetlesArray) {
           var $message = $('.tweet');
           $message.html('');
 
-          var index = streams.home.length - 1;
+          var index = tweetlesArray.length - 1;
 
           while (index >= 0) {
 
-            var tweet = streams.home[index];
+            var tweet = tweetlesArray[index];
             var $author = $('<span class="author"></span>');
             var $handle = $('<span class="handle"></span>');
             var $tweet = $('<span class="message"></span>');
@@ -106,7 +106,7 @@
           }
         };
 
-        tweetUp();
+        tweetUp(streams.home);
         // setInterval(tweetUp, 1500);
 
         $('.headerLeft').click(function() {
@@ -116,11 +116,11 @@
         $('#wuhButton').on('click', function () {
           var newMessage = $('#wuh').val();
           writeTweet(newMessage);
-          tweetUp();
+          tweetUp(streams.home);
         });
 
         $('#refresh').on('click', function () {
-          tweetUp();
+          tweetUp(streams.home);
         });
 
         $(document).on('mouseover', '.author', function (e) {
@@ -141,38 +141,7 @@
 
           $('.tweet > *').remove();
 
-          var $message = $('.tweet');
-          $message.html('');
-
-          var index = streams.users[selectedUser].length - 1;
-
-          while (index >= 0) {
-
-            var tweet = streams.users[selectedUser][index];
-            var $author = $('<span class="author"></span>');
-            var $handle = $('<span class="handle"></span>');
-            var $tweet = $('<span class="message"></span>');
-
-            var name = getName(tweet.user);
-            var imgPath = getHeadshot(tweet.user);
-
-            $author.text(name);
-            $handle.text(' - @' + tweet.user + ' - ' + $.timeago(tweet.created_at));
-            $tweet.text(tweet.message);
-
-            $('<img src="'+ imgPath +'"><br>').appendTo($message);
-
-            $author.appendTo($message);
-          
-            $handle.appendTo($message);
-            $('<br>').appendTo($message);
-          
-            $tweet.appendTo($message);
-            $('<br>').appendTo($message);
-            $('<br>').appendTo($message);
-
-            index -= 1;
-          }
+          tweetUp(streams.users[selectedUser]);
 
           e.preventDefault();
         });
