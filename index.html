@@ -22,12 +22,10 @@
         <div class="user">
           <span class="name">Visitor</span><br>
           <span class="handle">@visitor</span>
-
           <form class="formTweetle">
-            <textarea id="wuh" name="userTwittle" placeholder="Type your 140 character max tweetle."></textarea><br>
+            <textarea id="wuh" name="userTwittle" placeholder="Type your 140 character max tweetle." rows="4"></textarea><br>
             <input type="button" id="wuhButton" name="submit" value="Tweetle!">
           </form>
-        
         </div>
       </section>
       <section class="board">
@@ -41,8 +39,8 @@
         </div>
       </section>
     </div>
+    
     <script>
-
       $(document).ready(function(){
 
         var tweetUp = function () {
@@ -107,6 +105,7 @@
         $('#wuhButton').on('click', function () {
           var newMessage = $('#wuh').val();
           writeTweet(newMessage);
+          tweetUp();
         });
 
         $('#refresh').on('click', function () {

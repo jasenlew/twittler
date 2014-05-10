@@ -17,6 +17,7 @@ window.users = Object.keys(streams.users);
 var addTweet = function(newTweet){
   var username = newTweet.user;
 
+  //If username is not part of users object, then add it.
   if (streams.users[username] === undefined) {
     streams.users[username] = []; 
   }
