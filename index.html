@@ -23,7 +23,7 @@
           <span class="name">Visitor</span><br>
           <span class="handle">@visitor</span>
           <form class="formTweetle">
-            <textarea id="wuh" name="userTwittle" placeholder="Type your 140 character max tweetle."></textarea><br>
+            <textarea id="wuh" name="userTwittle" placeholder="Type your 140 character max tweetle." autofocus></textarea><br>
             <input type="button" id="wuhButton" name="submit" value="Tweetle!">
           </form>
         </div>
@@ -117,6 +117,7 @@
           var newMessage = $('#wuh').val();
           writeTweet(newMessage);
           tweetUp(streams.home);
+          $('#wuh').val('');
         });
 
         $('#refresh').on('click', function () {
