@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d989303-d76f-46cc-b4a4-def8861dd8fd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="2014-06-twittler.iws" />
@@ -29,7 +28,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.7532468" vertical-offset="645" max-vertical-offset="2385">
+            <state vertical-scroll-proportion="1.8928572" vertical-offset="516" max-vertical-offset="2385">
               <caret line="151" column="9" selection-start-line="151" selection-start-column="9" selection-end-line="151" selection-end-column="9" />
               <folding />
             </state>
@@ -228,7 +227,11 @@
       <created>1399739525010</created>
       <updated>1399739525010</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="DRY'd tweetUP function by requiring an array argument to be passed in">
+      <created>1399740543987</created>
+      <updated>1399740543987</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -299,7 +302,8 @@
     <MESSAGE value="Changed jasenlew to guest in form section" />
     <MESSAGE value="Refactored code to add getName and getHeadshot functions" />
     <MESSAGE value="Cleaned up main.css by removing unused styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up main.css by removing unused styles" />
+    <MESSAGE value="DRY'd tweetUP function by requiring an array argument to be passed in" />
+    <option name="LAST_COMMIT_MESSAGE" value="DRY'd tweetUP function by requiring an array argument to be passed in" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -484,7 +488,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7532468" vertical-offset="645" max-vertical-offset="2385">
+        <state vertical-scroll-proportion="1.8928572" vertical-offset="516" max-vertical-offset="2385">
           <caret line="151" column="9" selection-start-line="151" selection-start-column="9" selection-end-line="151" selection-end-column="9" />
           <folding />
         </state>
