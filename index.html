@@ -23,14 +23,14 @@
           <span class="name">Visitor</span><br>
           <span class="handle">@visitor</span>
           <form class="formTweetle">
-            <textarea id="wuh" name="userTwittle" placeholder="Type your 140 character max tweetle." rows="4"></textarea><br>
+            <textarea id="wuh" name="userTwittle" placeholder="Type your 140 character max tweetle."></textarea><br>
             <input type="button" id="wuhButton" name="submit" value="Tweetle!">
           </form>
         </div>
       </section>
       <section class="board">
         <div class="title">
-          <span>Tweets</span>
+          <span>Tweetles</span>
           <button id="refresh">Refresh Tweetles</button>
         </div>
         <div class="tweets">
@@ -102,7 +102,7 @@
             location.reload();
         });
 
-        $('#wuhButton').on('click', function () {
+        $('submit').on('click', function () {
           var newMessage = $('#wuh').val();
           writeTweet(newMessage);
           tweetUp();
@@ -128,7 +128,6 @@
         $(document).on('click', '.author', function (e) {
           var selectedUser = $(this).next().text().slice(3);
           selectedUser = selectedUser.slice(1, selectedUser.indexOf(' '));
-          // alert(selectedUser);
 
           $('.tweet > *').remove();
 
