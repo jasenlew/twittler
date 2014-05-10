@@ -43,6 +43,34 @@
     <script>
       $(document).ready(function(){
 
+        var getName = function (userName) {
+          if (userName === "shawndrost") {
+            return "Shawn Drost";
+          } else if (userName === "sharksforcheap") {
+            return "Tony Phillips";
+          } else if (userName === "mracus") {
+            return "Marcus Phillips";
+          } else if (userName === "douglascalhoun") {
+            return "Douglas Calhoun";
+          } else {
+            return "Visitor";
+          }
+        };
+
+        var getHeadshot = function (userName) {
+          if (userName === "shawndrost") {
+            return "imgs/shawndrost.jpg";
+          } else if (userName === "sharksforcheap") {
+            return "imgs/tonyphillips.jpg";
+          } else if (userName === "mracus") {
+            return "imgs/marcusphillips.jpg";
+          } else if (userName === "douglascalhoun") {
+            return "imgs/dougcalhoun.jpg";
+          } else {
+            return "imgs/guest.png";
+          }
+        };
+
         var tweetUp = function () {
           var $message = $('.tweet');
           $message.html('');
@@ -56,25 +84,8 @@
             var $handle = $('<span class="handle"></span>');
             var $tweet = $('<span class="message"></span>');
 
-            var name;
-            var imgPath;
-
-            if (tweet.user === "shawndrost") {
-              name = "Shawn Drost";
-              imgPath = "imgs/shawndrost.jpg";
-            } else if (tweet.user === "sharksforcheap") {
-              name = "Tony Phillips";
-              imgPath = "imgs/tonyphillips.jpg";
-            } else if (tweet.user === "mracus") {
-              name = "Marcus Phillips";
-              imgPath = "imgs/marcusphillips.jpg";
-            } else if (tweet.user === "douglascalhoun") {
-              name = "Douglas Calhoun";
-              imgPath = "imgs/dougcalhoun.jpg";
-            } else {
-              name = "Visitor";
-              imgPath = "imgs/guest.png";
-            }
+            var name = getName(tweet.user);
+            var imgPath = getHeadshot(tweet.user);
 
             $author.text(name);
             $handle.text(' - @' + tweet.user + ' - ' + $.timeago(tweet.created_at));
@@ -143,25 +154,8 @@
             var $handle = $('<span class="handle"></span>');
             var $tweet = $('<span class="message"></span>');
 
-            var name;
-            var imgPath;
-
-            if (tweet.user === "shawndrost") {
-              name = "Shawn Drost";
-              imgPath = "imgs/shawndrost.jpg";
-            } else if (tweet.user === "sharksforcheap") {
-              name = "Tony Phillips";
-              imgPath = "imgs/tonyphillips.jpg";
-            } else if (tweet.user === "mracus") {
-              name = "Marcus Phillips";
-              imgPath = "imgs/marcusphillips.jpg";
-            } else if (tweet.user === "douglascalhoun") {
-              name = "Douglas Calhoun";
-              imgPath = "imgs/dougcalhoun.jpg";
-            } else {
-              name = "Visitor";
-              imgPath = "imgs/guest.png";
-            }
+            var name = getName(tweet.user);
+            var imgPath = getHeadshot(tweet.user);
 
             $author.text(name);
             $handle.text(' - @' + tweet.user + ' - ' + $.timeago(tweet.created_at));
