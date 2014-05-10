@@ -53,9 +53,9 @@
           while (index >= 0) {
 
             var tweet = streams.home[index];
-            var $author = $('<a href=# class="author"></a>');
-            var $handle = $('<span class="handle"></span><br>');
-            var $tweet = $('<span class="message"></span><br><br>');
+            var $author = $('<span class="author"></span>');
+            var $handle = $('<span class="handle"></span>');
+            var $tweet = $('<span class="message"></span>');
 
             var name;
             var imgPath;
@@ -77,17 +77,20 @@
               imgPath = "guest.png";
             }
 
-
             $author.text(name);
             $handle.text(' - @' + tweet.user + ' - ' + $.timeago(tweet.created_at));
             $tweet.text(tweet.message);
+
             $('<img src="'+ imgPath +'"><br>').appendTo($message);
 
             $author.appendTo($message);
+          
             $handle.appendTo($message);
+            $('<br>').appendTo($message);
+          
             $tweet.appendTo($message);
-
-            $('.author').attr('href', "http://www.yahoo.com");
+            $('<br>').appendTo($message);
+            $('<br>').appendTo($message);
 
             index -= 1;
           }
@@ -103,8 +106,77 @@
           tweetUp();
         });
 
-        $("#wuhButton").on("click",function () {
-          writeTweet($("#wuh").val());
+        $(document).on('mouseover', '.author', function (e) {
+          $(this).css("text-decoration", "underline");
+          $(this).css("color", "blue");
+          e.preventDefault();
+        });
+
+
+        $(document).on('mouseout', '.author', function (e) {
+          $(this).css("text-decoration", "none");
+          $(this).css("color", "black");
+          e.preventDefault();
+        });
+
+        $(document).on('click', '.author', function (e) {
+          var selectedUser = $(this).next().text().slice(3);
+          selectedUser = selectedUser.slice(1, selectedUser.indexOf(' '));
+          // alert(selectedUser);
+
+          $('.tweet > *').remove();
+
+          var $message = $('.tweet');
+          $message.html('');
+
+          var index = streams.users[selectedUser].length - 1;
+
+          while (index >= 0) {
+
+            var tweet = streams.users[selectedUser][index];
+            var $author = $('<span class="author"></span>');
+            var $handle = $('<span class="handle"></span>');
+            var $tweet = $('<span class="message"></span>');
+
+            var name;
+            var imgPath;
+
+            if (tweet.user === "shawndrost") {
+              name = "Shawn Drost";
+              imgPath = "imgs/shawndrost.jpg";
+            } else if (tweet.user === "sharksforcheap") {
+              name = "Tony Phillips";
+              imgPath = "imgs/tonyphillips.jpg";
+            } else if (tweet.user === "mracus") {
+              name = "Marcus Phillips";
+              imgPath = "imgs/marcusphillips.jpg";
+            } else if (tweet.user === "douglascalhoun") {
+              name = "Douglas Calhoun";
+              imgPath = "imgs/dougcalhoun.jpg";
+            } else {
+              name = "Visitor";
+              imgPath = "guest.png";
+            }
+
+            $author.text(name);
+            $handle.text(' - @' + tweet.user + ' - ' + $.timeago(tweet.created_at));
+            $tweet.text(tweet.message);
+
+            $('<img src="'+ imgPath +'"><br>').appendTo($message);
+
+            $author.appendTo($message);
+          
+            $handle.appendTo($message);
+            $('<br>').appendTo($message);
+          
+            $tweet.appendTo($message);
+            $('<br>').appendTo($message);
+            $('<br>').appendTo($message);
+
+            index -= 1;
+          }
+
+          e.preventDefault();
         });
 
       });
